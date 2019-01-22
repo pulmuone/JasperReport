@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -41,17 +44,28 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		 
 		response.setContentType("text/html;charset=UTF-8");
-        
+	 
+			 
 		ServletOutputStream servletOutputStream = response.getOutputStream();
 		File reportFile = new File(getServletConfig().getServletContext()
-		 .getRealPath("/reports/Barcode4JReport.jasper")); // jasper ÆÄÀÏ À§Ä¡ ÁöÁ¤
+		 .getRealPath("/reports/Blank_A4.jasper")); // jasper ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+		
 		 byte[] bytes = null;
 		 
-		 try {
-			 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),
-			 new HashMap(), new JREmptyDataSource()); // HashMap¿¡ map.put(¡°para1¡±, value1)·Î ÆÄ¶ó¹ÌÅÍ¸¦ ÁöÁ¤
-			 // º¸°í¼­ ÆÄÀÏ¿¡¼­´Â $P{para1}·Î ÆÄ¶ó¹ÌÅÍ »ç¿ë
-			 // JREmptyDataSource ´ë½Å ½ÇÁ¦ connection°´Ã¼ »ç¿ë °¡´É
+		 try 
+		 {
+			 Class.forName("oracle.jdbc.driver.OracleDriver");
+			 Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.12.29:1521:bestdev", "BCWMS", "BCWMS");
+			 
+			 HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			 hashMap.put("para1", "2001926226");
+			 
+			 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), hashMap, conn);
+			 
+			 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), new HashMap(), new JREmptyDataSource()); 
+			 // HashMapì— map.put(â€œpara1â€, value1)ë¡œ íŒŒë¼ë¯¸í„°ë¥¼ ì§€ì •
+			 // ë³´ê³ ì„œ íŒŒì¼ì—ì„œëŠ” $P{para1}ë¡œ íŒŒë¼ë¯¸í„° ì‚¬ìš©
+			 // JREmptyDataSource ëŒ€ì‹  ì‹¤ì œ connectionê°ì²´ ì‚¬ìš© ê°€ëŠ¥
 			 response.setContentType("application/pdf");
 			 response.setContentLength(bytes.length);
 			 servletOutputStream.write(bytes, 0, bytes.length);
@@ -64,7 +78,13 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 		 e.printStackTrace(printWriter);
 		 response.setContentType("text/plain");
 		 response.getOutputStream().print(stringWriter.toString());
-		 }				
+		 } catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				
 				
 		
 	}
