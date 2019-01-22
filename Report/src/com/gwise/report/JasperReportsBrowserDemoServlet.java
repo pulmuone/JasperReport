@@ -48,7 +48,7 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 
 		ServletOutputStream servletOutputStream = response.getOutputStream();
 		File reportFile = new File(getServletConfig().getServletContext()
-		 .getRealPath("/reports/Blank_A4.jasper")); // jasper ���� ��ġ ����
+		 .getRealPath("/reports/Blank_A4_1.jasper"));
 		
 		 byte[] bytes = null;
 		 
