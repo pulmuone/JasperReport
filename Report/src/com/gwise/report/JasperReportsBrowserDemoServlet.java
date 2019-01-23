@@ -2,6 +2,7 @@ package com.gwise.report;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Connection;
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperRunManager;
 /**
@@ -44,11 +44,8 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		 
 		response.setContentType("text/html;charset=UTF-8");
-	 
-			 
-		ServletOutputStream servletOutputStream = response.getOutputStream();
-		File reportFile = new File(getServletConfig().getServletContext()
-		 .getRealPath("/reports/Blank_A4_1.jasper"));
+		ServletOutputStream servletOutputStream = response.getOutputStream();		 
+		//File reportFile = new File(getServletConfig().getServletContext().getRealPath("/reports/Blank_A4_1.jasper"));
 		
 		 byte[] bytes = null;
 		 
@@ -60,6 +57,8 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 HashMap<String, Object> hashMap = new HashMap<String, Object>();
 			 hashMap.put("para1", "2001926226");
 			 
+			 /*
+			 // How to : runReportToPdf
 			 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), hashMap, conn);
 			 
 			 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), new HashMap(), new JREmptyDataSource()); 
@@ -69,6 +68,18 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 response.setContentType("application/pdf");
 			 response.setContentLength(bytes.length);
 			 servletOutputStream.write(bytes, 0, bytes.length);
+			 servletOutputStream.flush();
+			 servletOutputStream.close();
+			 */
+			 
+			//How to : runReportToPdfStream
+			 InputStream reportStream = getServletConfig().getServletContext().getResourceAsStream("/reports/Blank_A4_1.jasper");
+			 JasperRunManager.runReportToPdfStream(reportStream,
+					 servletOutputStream,
+					 hashMap,
+					 conn);
+			 reportStream.close();
+			 response.setContentType("application/pdf");
 			 servletOutputStream.flush();
 			 servletOutputStream.close();
                          
