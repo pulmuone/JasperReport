@@ -3,6 +3,10 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="add7962f-6092-4724-b849-a7cab814e9ca">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BCWMS_DEV"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="323"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="665"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="383"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="603"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
@@ -63,12 +67,12 @@ WHERE A.shpoky =  $P{d_para1}]]>
 		<field name="QTSHPD" class="java.math.BigDecimal">
 			<property name="com.jaspersoft.studio.field.label" value="QTSHPD"/>
 		</field>
-		<group name="SHPOKY">
-			<groupExpression><![CDATA[$F{SHPOKY}]]></groupExpression>
-		</group>
 	</subDataset>
-	<parameter name="para1" class="java.lang.String" isForPrompting="false">
-		<parameterDescription><![CDATA[물류센터 코드]]></parameterDescription>
+	<parameter name="para1" class="java.lang.String" nestedType="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[출고전표]]></parameterDescription>
+	</parameter>
+	<parameter name="para2" class="java.lang.String" nestedType="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[출고예정일]]></parameterDescription>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
@@ -129,10 +133,10 @@ WHERE shpoky IN ('2002312997', '2001561548')]]>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
-					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Dataset1" uuid="4f8306e6-002f-4d6d-aa83-31f95d862048">
+					<datasetRun subDataset="Dataset1" uuid="69f810fc-b6a7-4b17-aa8c-4728a3b2af6a">
 						<datasetParameter name="d_para1">
 							<datasetParameterExpression><![CDATA[$F{SHPOKY}]]></datasetParameterExpression>
 						</datasetParameter>
