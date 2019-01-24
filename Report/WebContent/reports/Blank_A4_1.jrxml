@@ -126,9 +126,9 @@ WHERE shpoky IN ('2002312997', '2001561548')]]>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="60">
+		<band height="69">
 			<componentElement>
-				<reportElement x="0" y="0" width="550" height="60" uuid="fef625ca-5eab-41d8-adf8-56067df673c3">
+				<reportElement x="0" y="0" width="550" height="69" uuid="fef625ca-5eab-41d8-adf8-56067df673c3">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -142,49 +142,64 @@ WHERE shpoky IN ('2002312997', '2001561548')]]>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="76" uuid="0bb1cd36-c100-46ff-9745-9a07383a9d70">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
-						<jr:columnHeader style="Table_CH" height="30">
+					<jr:columnGroup width="165" uuid="8e4c9c8d-1d9f-44e3-b10e-ecf4baeb0efc">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [2]"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="76" height="30" uuid="cc9df824-c751-4e4c-be7b-d945ad46ae99"/>
+								<reportElement x="0" y="0" width="165" height="20" uuid="206d8e63-4e7c-4770-be99-1ea712f7ea96"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="맑은 고딕"/>
 								</textElement>
-								<text><![CDATA[출고전표]]></text>
+								<text><![CDATA[출고]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="30">
-							<textField>
-								<reportElement x="0" y="0" width="76" height="30" uuid="03648615-715e-49b5-b24d-84308b660b56"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{SHPOKY}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="89" uuid="4cefd2b9-0b49-4524-ac58-525019e7a3fe">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
-						<jr:columnHeader style="Table_CH" height="30">
-							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="2817964b-2ec5-44ce-978d-03156c1e050f"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="맑은 고딕"/>
-								</textElement>
-								<text><![CDATA[출고요청일]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="30">
-							<textField>
-								<reportElement x="0" y="0" width="89" height="30" uuid="ccd6982c-00ea-48b7-8d8a-18576438a524"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{RQSHPD}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
+						<jr:column width="76" uuid="0bb1cd36-c100-46ff-9745-9a07383a9d70">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+								<staticText>
+									<reportElement x="0" y="0" width="76" height="20" uuid="cc9df824-c751-4e4c-be7b-d945ad46ae99"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="맑은 고딕"/>
+									</textElement>
+									<text><![CDATA[출고전표]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="76" height="30" uuid="03648615-715e-49b5-b24d-84308b660b56"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{SHPOKY}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="89" uuid="4cefd2b9-0b49-4524-ac58-525019e7a3fe">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+							<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+								<staticText>
+									<reportElement x="0" y="0" width="89" height="20" uuid="2817964b-2ec5-44ce-978d-03156c1e050f"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="맑은 고딕"/>
+									</textElement>
+									<text><![CDATA[출고요청일]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="89" height="30" uuid="ccd6982c-00ea-48b7-8d8a-18576438a524"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{RQSHPD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
 					<jr:column width="76" uuid="7e729bef-8e11-4819-bf32-29d19c7a61d4">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
-						<jr:columnHeader style="Table_CH" height="30">
+						<jr:columnHeader style="Table_CH" height="40" rowSpan="2">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 							<staticText>
-								<reportElement x="0" y="0" width="76" height="30" uuid="893a835b-3fed-4389-8be8-cac2aa81a943"/>
+								<reportElement x="0" y="0" width="76" height="40" uuid="893a835b-3fed-4389-8be8-cac2aa81a943"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="맑은 고딕"/>
 								</textElement>
@@ -199,51 +214,64 @@ WHERE shpoky IN ('2002312997', '2001561548')]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="77" uuid="9cafa067-1b3f-4b19-929c-8f471bdb7b7d">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
-						<jr:columnHeader style="Table_CH" height="30">
+					<jr:columnGroup width="246" uuid="24af9556-78e6-42c6-a155-559469d65f2a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [2]"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="77" height="30" uuid="e0468fa8-49ac-41d8-98c7-7a6c96634879"/>
+								<reportElement x="0" y="0" width="246" height="20" uuid="8be1adfd-affb-4d9c-b379-d45d8ab8d61d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="맑은 고딕"/>
 								</textElement>
-								<text><![CDATA[상품코드]]></text>
+								<text><![CDATA[상품]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="30">
-							<textField>
-								<reportElement x="0" y="0" width="77" height="30" uuid="eacc0579-dd57-4661-96ca-2d9f749f6071"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{SKUKEY}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="169" uuid="9966e0ad-752e-43df-8835-f409a92f8c35">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
-						<jr:columnHeader style="Table_CH" height="30">
-							<staticText>
-								<reportElement x="0" y="0" width="169" height="30" uuid="2a910fc7-7136-4220-b8e4-31159c858e4f"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="맑은 고딕"/>
-								</textElement>
-								<text><![CDATA[상품명]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="30">
-							<textField>
-								<reportElement x="0" y="0" width="169" height="30" uuid="83306038-3ba4-4e27-8cd8-4b57ad8e7ae9"/>
-								<textElement verticalAlignment="Middle">
-									<font fontName="맑은 고딕"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{DESC01}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
+						<jr:column width="77" uuid="9cafa067-1b3f-4b19-929c-8f471bdb7b7d">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+							<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="77" height="20" uuid="e0468fa8-49ac-41d8-98c7-7a6c96634879"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="맑은 고딕"/>
+									</textElement>
+									<text><![CDATA[상품코드]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="77" height="30" uuid="eacc0579-dd57-4661-96ca-2d9f749f6071"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{SKUKEY}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="169" uuid="9966e0ad-752e-43df-8835-f409a92f8c35">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+							<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="169" height="20" uuid="2a910fc7-7136-4220-b8e4-31159c858e4f"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="맑은 고딕"/>
+									</textElement>
+									<text><![CDATA[상품명]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="169" height="30" uuid="83306038-3ba4-4e27-8cd8-4b57ad8e7ae9"/>
+									<textElement verticalAlignment="Middle">
+										<font fontName="맑은 고딕"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{DESC01}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
 					<jr:column width="63" uuid="5bbcebc5-a201-499f-902a-8133fa9e461f">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
-						<jr:columnHeader style="Table_CH" height="30">
+						<jr:columnHeader style="Table_CH" height="40" rowSpan="2">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 							<staticText>
-								<reportElement x="0" y="0" width="63" height="30" uuid="76e931a9-5566-4cb9-b0d1-05b4a97d78e3"/>
+								<reportElement x="0" y="0" width="63" height="40" uuid="76e931a9-5566-4cb9-b0d1-05b4a97d78e3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="맑은 고딕"/>
 								</textElement>
