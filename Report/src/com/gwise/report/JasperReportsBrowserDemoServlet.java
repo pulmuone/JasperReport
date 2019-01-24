@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperRunManager;
 /**
@@ -43,11 +44,11 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		 
-		response.setContentType("text/html;charset=UTF-8");
-		ServletOutputStream servletOutputStream = response.getOutputStream();		 
+		//response.setContentType("text/html;charset=UTF-8");
+		//ServletOutputStream servletOutputStream = response.getOutputStream();		 
 		//File reportFile = new File(getServletConfig().getServletContext().getRealPath("/reports/Blank_A4_1.jasper"));
 		
-		 byte[] bytes = null;
+		 //byte[] bytes = null;
 		 
 		 try 
 		 {
@@ -73,15 +74,15 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 */
 			 
 			//How to : runReportToPdfStream
-			 InputStream reportStream = getServletConfig().getServletContext().getResourceAsStream("/reports/Blank_A4_1.jasper");
-			 JasperRunManager.runReportToPdfStream(reportStream,
-					 servletOutputStream,
+			 response.setContentType("application/pdf"); //OutputWrite하기 전에 type설정해야 함.
+			 JasperRunManager.runReportToPdfStream(
+					 getServletConfig().getServletContext().getResourceAsStream("/reports/Blank_A4_1.jasper"),
+					 response.getOutputStream(),
 					 hashMap,
-					 conn);
-			 reportStream.close();
-			 response.setContentType("application/pdf");
-			 servletOutputStream.flush();
-			 servletOutputStream.close();
+					 conn //new JREmptyDataSource()
+					 );
+			 response.getOutputStream().flush();
+			 response.getOutputStream().close();
                          
 		 } catch (JRException e) {
 		 StringWriter stringWriter = new StringWriter();
