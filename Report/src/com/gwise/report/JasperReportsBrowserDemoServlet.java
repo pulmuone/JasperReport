@@ -73,7 +73,7 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 servletOutputStream.close();
 			 */
 			 
-			//How to : runReportToPdfStream
+			//How to : runReportToPdfStream 
 			 response.setContentType("application/pdf"); //OutputWrite하기 전에 type설정해야 함.
 			 
 			 try(ServletOutputStream servletOutputStream = response.getOutputStream()) {
