@@ -75,30 +75,27 @@ public class JasperReportsBrowserDemoServlet extends HttpServlet {
 			 
 			//How to : runReportToPdfStream
 			 response.setContentType("application/pdf"); //OutputWrite하기 전에 type설정해야 함.
-			 JasperRunManager.runReportToPdfStream(
-					 getServletConfig().getServletContext().getResourceAsStream("/reports/Blank_A4_1.jasper"),
-					 response.getOutputStream(),
-					 hashMap,
-					 conn //new JREmptyDataSource()
-					 );
-			 response.getOutputStream().flush();
-			 response.getOutputStream().close();
-                         
-		 } catch (JRException e) {
-		 StringWriter stringWriter = new StringWriter();
-		 PrintWriter printWriter = new PrintWriter(stringWriter);
-		 e.printStackTrace(printWriter);
-		 response.setContentType("text/plain");
-		 response.getOutputStream().print(stringWriter.toString());
-		 } catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}				
-				
-		
+			 
+			 try(ServletOutputStream servletOutputStream = response.getOutputStream()) {
+				 JasperRunManager.runReportToPdfStream(
+						 getServletConfig().getServletContext().getResourceAsStream("/reports/Blank_A4_1.jasper"),
+						 servletOutputStream,
+						 hashMap,
+						 conn //new JREmptyDataSource()
+						 );
+				 conn.close();
+				 servletOutputStream.flush();
+			 } catch (JRException e) {
+					 StringWriter stringWriter = new StringWriter();
+					 PrintWriter printWriter = new PrintWriter(stringWriter);
+					 e.printStackTrace(printWriter);
+					 response.setContentType("text/plain");
+					 response.getOutputStream().print(stringWriter.toString());
+			 }
+			 
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 }
 	}
 
 	/**
