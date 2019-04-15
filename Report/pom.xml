@@ -18,7 +18,7 @@
 		<dependency>
 		    <groupId>net.sf.jasperreports</groupId>
 		    <artifactId>jasperreports</artifactId>
-		    <version>6.7.0</version>
+		    <version>6.8.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
@@ -49,33 +49,19 @@
 		    <version>1.10</version>
 		</dependency>
 
-
-
-<!-- https://mvnrepository.com/artifact/net.sourceforge.barbecue/barbecue -->
-
-<dependency>
-
-    <groupId>net.sourceforge.barbecue</groupId>
-
-    <artifactId>barbecue</artifactId>
-
-    <version>1.5-beta1</version>
-
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/com.itextpdf/itext-asian -->
-<dependency>
-    <groupId>com.itextpdf</groupId>
-    <artifactId>itext-asian</artifactId>
-    <version>5.2.0</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
-<dependency>
-    <groupId>net.sf.jasperreports</groupId>
-    <artifactId>jasperreports-fonts</artifactId>
-    <version>6.0.0</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.barbecue/barbecue -->
+		<dependency>
+		    <groupId>net.sourceforge.barbecue</groupId>
+		    <artifactId>barbecue</artifactId>
+		    <version>1.5-beta1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports-fonts</artifactId>
+		    <version>6.0.0</version>
+		</dependency>
 
     </dependencies>    
   
